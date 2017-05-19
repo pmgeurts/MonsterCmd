@@ -13,8 +13,48 @@ class Monster {
     var name: String
     var monsterTeeth: teethType
     
-    var crunchedBones: [Bone] = [ ]
+    //This is a property inspector
+    //- didSet : notifications just after
+    //- willSet: notification just before
     
+    var crunchedBones: [Bone] = [ ] {
+        didSet {
+            print("crunched some nasty bones")
+        }
+        willSet {
+            print("some nasty bone crunching is about to occur")
+        }
+    }
+    
+    
+    
+    
+    /*
+    // This is a lazy variable
+    // Used for expensive calculations
+     
+     lazy var weight: Double = {
+     return Double(self.crunchedBones.count) * Bone.weight
+     }()
+     
+     */
+    
+    // This is a get only property
+    // They can be recalculated instead of a lazy variable (example above in //)
+    
+    var weight: Double {
+        get {
+            return Double(self.crunchedBones.count) * Bone.weight
+        }
+        
+        set (weight){
+            //do something here when you set the computed property
+            if weight >= 150 {
+                print("Puuukkkkeeee")
+                print("So relived")
+            }
+        }
+    }
     init(age: Int, name: String, monsterTeeth: teethType) {
         self.age = age
         self.name = name
@@ -28,7 +68,7 @@ class Monster {
         } else {
             print("No young meat today... :(")
         }
-        crunchBones(bones: whichHuman.bones)        
+        crunchBones(bones: whichHuman.bones)
         return crunchedBones
     }
     
@@ -63,5 +103,4 @@ class Monster {
     }
     
 }
-
 

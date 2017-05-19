@@ -9,6 +9,7 @@
 import Foundation
 
 class Bone {
+    static let weight: Double = 10.0
     var type: boneType
     var crunched: Bool
     

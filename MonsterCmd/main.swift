@@ -16,7 +16,7 @@ var manBones: [Bone] = []
 var womanBones: [Bone] = []
 
 // Loop around # and create onstances for Bone
-for loopCounter in 1...3 {
+for loopCounter in 1...1 {
     
     var boneInstance = Bone(type: .boyBone, crunched: false)
     boyBones.append(boneInstance)
@@ -39,15 +39,22 @@ var humansToEat: [Human] = [theBoy, theMan, theWoman] //as Array
 
 var BonePod = Monster(age: 200, name: "KiLlErMoNsTeR", monsterTeeth: .grindingTeeth)
 var bonesReturned = BonePod.eatManyHumans(whichHumans: humansToEat)
-
+print(BonePod.weight)
 BonePod.eatManyHumans(whichHumans: humansToEat)
-
+BonePod.weight = 300
+print(BonePod.weight)
 print(bonesReturned)
-
+print(BonePod.weight)
 print(Human.toSurvive)
+
 print(Woman.toSurvive)
-//print(theWoman.toSurvive)
+//BonePod.weight = 1
+print(BonePod.weight)
+
+
+
+/* print(theWoman.toSurvive)
 
 for piet in bonesReturned {
     print(piet.type, piet.crunched)
-}
+} */
